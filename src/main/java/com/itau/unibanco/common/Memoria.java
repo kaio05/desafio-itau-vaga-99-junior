@@ -21,6 +21,10 @@ public class Memoria {
         transacoes.add(transacao);
     }
 
+    public void apagarMemoria() {
+        transacoes.clear();
+    }
+
     public List<Transacao> getLista() {
         return transacoes;
     }

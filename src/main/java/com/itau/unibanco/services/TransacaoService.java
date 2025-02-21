@@ -16,4 +16,8 @@ public class TransacaoService {
         memoria.salvarTransacao(transacao);
     }
 
+    public void apagarMemoria() {
+        memoria.apagarMemoria();
+    }
+
 }
