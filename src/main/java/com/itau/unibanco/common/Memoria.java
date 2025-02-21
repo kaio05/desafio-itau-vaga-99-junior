@@ -1,23 +1,28 @@
 package com.itau.unibanco.common;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 import com.itau.unibanco.models.Transacao;
 
-@Configuration
+@Component
+@Scope("singleton")
 public class Memoria {
 
     List<Transacao> transacoes = new ArrayList<>();
-
-    @Bean
+    
     public Memoria memoria() {
         return new Memoria();
     }
 
     public void salvarTransacao(Transacao transacao) {
         transacoes.add(transacao);
+    }
+
+    public List<Transacao> getLista() {
+        return transacoes;
     }
     
 }
