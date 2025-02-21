@@ -15,5 +15,9 @@ public class Memoria {
     public Memoria memoria() {
         return new Memoria();
     }
+
+    public void salvarTransacao(Transacao transacao) {
+        transacoes.add(transacao);
+    }
     
 }
