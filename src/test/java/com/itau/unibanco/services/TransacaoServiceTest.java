@@ -24,4 +24,10 @@ public class TransacaoServiceTest {
         assertEquals(memoria.getLista().get(0), transacao);
         assertEquals(memoria.getLista().size(), 2);
     }
+
+    @Test
+    void testApagarMemoria() {
+        memoria.apagarMemoria();
+        assertEquals(memoria.getLista().size(), 0);
+    }
 }
