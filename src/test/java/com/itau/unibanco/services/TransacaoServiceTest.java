@@ -13,8 +13,8 @@ public class TransacaoServiceTest {
 
     private Memoria memoria = new Memoria();
 
-    private Transacao transacao = new Transacao(100.00f, OffsetDateTime.now());
-    private Transacao transacao2 = new Transacao(200.00f, OffsetDateTime.now());
+    private Transacao transacao = new Transacao(100.00, OffsetDateTime.now());
+    private Transacao transacao2 = new Transacao(200.00, OffsetDateTime.now());
 
     @Test
     void testCriarTransacao() {
