@@ -27,8 +27,7 @@ public class TransacaoController {
         if(bindingResult.hasFieldErrors())
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
             
-        transacaoService.criarTransacao(transacao);
-        return ResponseEntity.status(HttpStatus.CREATED).body(null);
+        return transacaoService.criarTransacao(transacao);
     }
 
     @DeleteMapping
