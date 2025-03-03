@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.itau.unibanco.common.Memoria;
 import com.itau.unibanco.common.dtos.EstatisticasDto;
-import com.itau.unibanco.models.Transacao;
+import com.itau.unibanco.common.dtos.TransacaoDto;
 
 @Service
 public class EstatisticasService {
@@ -17,7 +17,7 @@ public class EstatisticasService {
     @Autowired
     private Memoria memoria;
 
-    Integer getCount(List<Transacao> lista) {
+    Integer getCount(List<TransacaoDto> lista) {
         return lista.size();
     }
 
@@ -25,7 +25,7 @@ public class EstatisticasService {
         return valores.stream().reduce(0.0, Double::sum);
     }
 
-    Double getAvg(List<Transacao> lista, List<Double> valores) {
+    Double getAvg(List<TransacaoDto> lista, List<Double> valores) {
         return getSum(valores) / getCount(lista);
     }
 
@@ -39,7 +39,7 @@ public class EstatisticasService {
 
     public EstatisticasDto calcularEstatisticas() {
         
-        List<Transacao> recentes = memoria.getLista().stream().filter(i -> Duration.between(i.getDataHora(), OffsetDateTime.now()).getSeconds() <= 60).toList();
+        List<TransacaoDto> recentes = memoria.getLista().stream().filter(i -> Duration.between(i.getDataHora(), OffsetDateTime.now()).getSeconds() <= 60).toList();
         
         if(recentes.size() == 0) {
             EstatisticasDto estatisticas = new EstatisticasDto(0, 0.0, 0.0, 0.0, 0.0);
