@@ -7,14 +7,17 @@ import java.time.OffsetDateTime;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.itau.unibanco.common.dtos.TransacaoDto;
 
+@SpringBootTest
 public class MemoriaTest {
 
     @Autowired
-    Memoria memoria = new Memoria();
+    Memoria memoria;
 
     @Test
     @DisplayName("Should show that the memory is empty")
