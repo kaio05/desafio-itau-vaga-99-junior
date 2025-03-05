@@ -12,7 +12,7 @@ import java.util.List;
 @Scope("singleton")
 public class Memoria {
 
-    List<TransacaoDto> transacoes = new ArrayList<>();
+    private static List<TransacaoDto> transacoes = new ArrayList<>();
     
     public Memoria memoria() {
         return new Memoria();
